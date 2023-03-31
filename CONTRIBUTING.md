@@ -1,0 +1,1 @@
+This file contains information about how other developers can contribute to this project.

@@ -1,0 +1,37 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+
+	{% if request.user == post.owner or request.user.is_superuser %}
+
+		<h1 class='form-title'>{{title}}</h1>
+
+		<form action="{% url 'edit_page' post.slug %}" class='editpage-form' method="post" enctype="multipart/form-data">
+			<!-- строка enctype="multipart/form-data" нужна для загрузки фото в форму -->
+			<!-- в случае передачи каких либо файлов совместно с данными, нужно обязательно указывать такой атрибут -->
+			{% csrf_token %}
+
+			<div class="form-error">{{ form.non_field_errors }}</div>
+			<!-- строка выше отображает общие ошибки при отправке формы -->
+
+			{% for f in form %}
+				<p class='form-p'><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label> {{ f }}</p>
+				<div class="form-error">{{ f.errors }}</div>
+			{% endfor %}
+
+			<div class='post-change-buttons'>
+				<button class='confirm' type="submit">Apply changes</button>
+				<a class="fake-button cancel-operation" href='{{ post.get_absolute_url }}'>Cancel</a>
+			</div>
+
+		</form>
+
+	{% else %}
+
+		<div class='smart-move'>
+			<a href='{% url "home" %}'>You`re the smartest :)</a>
+		</div>
+
+	{% endif %}
+
+{% endblock %}

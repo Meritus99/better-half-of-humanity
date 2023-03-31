@@ -1,0 +1,23 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+
+<h1 class='form-h1 about-h1'><a href="{% url 'home' %}">{{ text }}</a></h1>
+
+<ol class='about-content'>
+	{% for women in all_women %}
+		<li><a href="{{women.get_absolute_url}}">{{ women.title }}</a></li>
+	{% endfor %}
+</ol>
+
+<ul class='about-content'>
+	{% for cat in cats %}
+		<li><a href="{{cat.get_absolute_url}}">{{ cat.slug.title }}</a></li>
+	{% endfor %}
+	
+	<br>
+	<p class='element-for-animation'><a href='{% url "home" %}'>To main page</a></p>
+
+</ul>
+	
+{% endblock content %}

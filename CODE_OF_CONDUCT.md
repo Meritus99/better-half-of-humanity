@@ -1,0 +1,1 @@
+This file contains rules of conduct for project members.

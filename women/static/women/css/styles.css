@@ -1,0 +1,601 @@
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  /*font-weight: normal;*/
+  /*background: url('../images/bg.jpg');*/
+  min-height: 100vh;
+}
+
+
+html {
+  min-height: 100vh;
+}
+
+p {
+  /*font-size: 16px; */
+  /*font-family: Arial, sans-serif;*/
+}
+
+* {
+  color: rgb(0,0,0);
+  font-weight: 100;
+}
+
+
+.header {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: url('../images/2.jpg');
+  border-bottom: 4px double #fff;
+  font-size: 20px;
+}
+
+.selected-user {color: #fff; text-shadow: 2px 2px 0px #c6c4f4, 5px 4px 0px rgba(0,0,0,0.15); font-weight: 550;}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 55px;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav p a:hover {color: #fff;}
+
+.menu {
+  display: inline-flex;
+}
+
+.menu-item {padding-right: 15px;}
+
+.menu-item a:hover {color: #fff;}
+
+.categories {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: url('../images/footer.jpg');
+  font-size: 19px;
+  padding: 7px 0;
+  border-bottom: 4px double #fff;
+}
+
+.cats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-categories {
+  display: inline-flex;
+}
+
+.all-categories li {
+  padding-right: 20px;
+  position: relative;
+}
+
+.all-categories li.selected {
+  color: #fff;
+  text-shadow: 2px 2px 0px #c6c4f4, 5px 4px 0px rgba(0,0,0,0.15);
+  font-weight: 550;
+}
+
+.all-categories li a:hover {
+  color: #fff;
+  text-shadow: 2px 2px 0px #c6c4f4, 5px 4px 0px rgba(0,0,0,0.15);
+}
+
+.all-categories li a:hover:before, li.selected:before {
+/*  display: block;
+  border-left: 2px solid #fff;
+  border-right: 2px solid red;*/
+  
+  content: url('../images/marker.png');
+  position: absolute;
+  left: -15px;
+}
+
+.main {
+  min-height: 100vh;
+  padding-top: 35px;
+  padding-bottom: 35px; 
+  background: url('../images/bg.jpg');
+
+}
+
+.main-content li {
+  padding: 0px 20px;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.article {
+  background: url('../images/article.jpg');
+  padding: 15px 10px;
+  overflow: overlay;
+  border: 2px double #fff;
+  border-radius: 10px / 30px;
+
+}
+
+.article:hover {box-shadow: 3px 3px 3px 0px #c6c4f4;}
+.article:active {outline: none; background: rgba(255, 255, 255, 0.3);}
+
+.article p.first {
+  float: left;
+  margin: 0;
+}
+
+.article a {
+  color: #555;
+}
+
+.article p.last {
+  color: #555;
+  float: right;
+  margin: 0;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.main-title {
+  padding-top: 15px;
+  text-shadow: 2px 2px 0px #c6c4f4, 5px 4px 0px rgb(0 0 0 / 15%);
+  color: white;
+}
+
+.content {
+  /*overflow: overlay;*/
+  /*display: block;*/
+  /*margin-bottom: 50px;*/
+}
+
+.read-post {
+  background: url('../images/article.jpg');
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  min-width: 100px;
+  border-radius: 10px / 30px;
+  color: #555;
+  border: 2px double #fff;
+  padding: 15px 10px;
+}
+
+.read-post:hover {
+  box-shadow: 3px 3px 3px 0px #c6c4f4;
+}
+.read-post:active {outline: none; background: rgba(255, 255, 255, 0.3);}
+
+/*---------------------------form--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+form {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  /*padding: 10px 125px 0px 125px;*/
+}
+
+
+.form-title, .registration-offer {
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 10px;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.registration-offer {
+  margin-left: 35px;
+  font-size: 16px;
+}
+
+.registration-offer a {text-decoration: revert; color: white; font-size: 15px;}
+.registration-offer a:hover {color: black;}
+
+.form-label {
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 160px;
+  vertical-align: top;
+}
+
+.form-p {
+  line-height: 2.2;
+  position: relative;
+  margin: 15px 0px 15px 0px;
+}
+
+.form-p a {color: white;}
+
+input, textarea {
+  font-family: Noto Sans, sans-serif;
+  line-height: 1.5;
+  resize: none;
+  margin: 0;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 16px;
+  box-sizing: inherit;
+  display: inline-block;
+  border: none;
+  box-shadow: 3px 3px 1px #c6c4f4;
+}
+
+input {min-width: 300px;}
+
+input:focus, textarea:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: none;
+    box-shadow: 3px 3px 1px #ccc;
+}
+
+input:hover, textarea:hover {box-shadow: 3px 3px 1px #ccc;}
+
+#id_photo, #id_is_published {padding-left: 0px; box-shadow: none;}
+/*input#id_photo:focus, input#id_photo:active {outline: none;}*/
+
+#id_is_published {min-width: 0px;}
+
+input#id_captcha_1 {position: absolute;}
+
+#id_captcha_1 {max-width: 250px; min-width: 100px; max-height: 34px; margin-left: 10px; margin-top: 4px;}
+
+img.captcha {border: 1.5px solid white;}
+
+.form-error ul li {
+  color: rgb(195,0,69);
+}
+
+select:focus, button:focus {outline: none;}
+select {font-size: 15px; padding: 3px 3px; max-height: 30px; text-align: center;}
+
+.form-title-delpage {
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  font-size: 25px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.form-title-delpage a {color: #fff;}
+.form-title-delpage a:hover {color: red;}
+
+/*---------------------------form--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------add-post--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*.post-change-buttons {
+  display: flex;
+  justify-content: space-between;
+}*/
+
+/*---------------------------add-post--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------img---------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+img {max-width: 600px; height: auto;}
+
+.maincontent-img {
+  max-width: 350px;
+  height: auto;
+  float: left;
+  border: 2px double #fff;
+  margin: 0px 20px 15px 0px;
+}
+.maincontent-img:hover {opacity: 0.8;}
+
+.small-img {
+  margin: 15px 15px 115px 0px;
+  /*float: left;*/
+  max-width: 150px;
+  max-height: 220px;
+}
+.small-img:hover {opacity: 0.8;}
+
+/*---------------------------img-----------------------------------*/
+/* -------------------------navigation---------------------------- */
+
+.navigation {
+  box-sizing: border-box;
+  border-top: 4px double #fff;
+  background: url('../images/bg.jpg');
+}
+
+.navigations {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.navigation-item {
+  margin-top: 14px;
+  font-size: 20px;
+  margin-right: 15px;
+  display: inline-flex;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: url('../images/article.jpg');
+  border: 2px double #fff;
+}
+
+.navigation-link {
+  display: block;
+  width: 55px;
+  height: 45px;
+  padding: 15px 2px 0px 0px;
+}
+
+.navigation-selected-item {
+  margin-top: 14px;
+  padding: 17px 0px 0px 0px;
+  margin-right: 15px;
+  font-size: 22px;
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  background: none;
+  color: white;
+  border: none;
+}
+
+.navigation-item:hover {
+  box-shadow: 3px 3px 3px 0px #c6c4f4;
+} 
+.navigation-link:hover {color: #fff;}
+.navigation-item:active {outline: none; background: rgba(255, 255, 255, 0.3);}
+
+
+/* -------------------------navigation---------------------------- */
+/* -------------------------footer---------------------------- */
+
+.footer {
+  padding: 10px 0;
+  border-top: 4px double #fff;
+  text-align: center;
+  font-size: 14px;
+  background: url('../images/footer.jpg');
+}
+
+.content-footer {margin: 0;}
+
+/* -------------------------footer---------------------------- */
+/* -------------------------post---------------------------- */
+
+.post-title {
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  margin: 0px 0 30px 0px;
+  text-shadow: 2px 2px 0px #c6c4f4, 5px 4px 0px rgba(0,0,0,0.15);
+}
+
+.post-content {
+  /*padding: 15px 125px 100px 125px;*/
+  display: flex;
+  flex-direction: column;
+}
+
+.post-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  padding-bottom: 50px;
+}
+
+/* -----------------------------post---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------buttons----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.fake-button {
+  box-sizing: border-box;
+  justify-content: center;
+  width: 200px;
+  max-height: 37px;
+  background: url('../images/article.jpg');
+  padding: 7px;
+  font-size: 16px;
+  display: flex;
+  color: black;
+  border: 2.2px solid black;
+}
+
+.fake-button:hover {box-shadow: 5px 3px 10px #c6c4f4; color: #fff;}
+.fake-button:active {outline: none; background: rgba(255, 255, 255, 0.3);}
+
+.author {
+  box-sizing: border-box;
+  display: flex;
+  text-align: center;
+  padding: 7px;
+}
+
+.post-change-buttons {
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cancel-operation {margin-left: 170px;}
+.cancel-operation:hover, .cancel-operation-login:hover {color: rgb(195,0,69); box-shadow: 5px 3px 10px #c6c4f4;}
+.cancel-operation:active, .cancel-operation-login:active {outline: none; background: rgba(255, 255, 255, 0.3);}
+.cancel-operation-login {margin-left: 87px;}
+
+button {
+    box-sizing: border-box;
+    background: url('../images/div-article.png');
+    padding: 7px;
+    width: 200px;
+    max-height: 37px;
+    font-size: 16px;
+}
+button:hover {box-shadow: 5px 3px 10px #c6c4f4; cursor: pointer;}
+button:active {outline: none; background: rgba(255, 255, 255, 0.3);}
+
+button, select {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
+
+button.confirm:hover {color: green;}
+
+#id_captcha_1 {width: 222px;}
+.registration-form #id_captcha_1 {width: 227px;}
+
+.editpage-form #id_photo {margin-left: 85px;}
+.editpage-form select:focus {outline: none;}
+
+/* ----------------------------buttons-------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* -----------------------------delete---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.delete {
+  display: flex;
+  flex-direction: column;
+}
+
+.delpage-buttons {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.cancel-operation-delpage {margin-right: 10px;}
+.cancel-operation-delpage:hover {color: green;}
+.delpage:hover {color: rgb(195,0,69);}
+
+/* -----------------------------delete---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+ol.about-content {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+ol.about-content li {
+  display: inline-flex;
+  margin: 5px 10px 10px 0;
+}
+
+ol.about-content li a:hover {color: white;}
+
+ul.about-content {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+ul.about-content li {
+  display: inline-flex;
+  margin: 5px 5px 10px 0;
+}
+
+ul.about-content li a {
+  color: white;
+}
+
+
+ul.about-content li a:hover {color: black;}
+
+/*---------------------animation--------------------------*/
+
+h1.about-h1 {
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 35px;
+  text-shadow: 2px 2px 0px #c6c4f4, 5px 4px 0px rgba(0,0,0,0.15);
+}
+
+h1.about-h1 a {
+  color: #fff;
+}
+
+h1.about-h1 a:hover {color: rgb(195,0,69);}
+
+
+@keyframes wide-panel {
+  from {
+    width: 300px;
+    background-color: rgba(217, 204, 255, 0.2);
+  }
+/*  25% {
+    width: 450px;
+  }
+  50% {
+    width: 600px;
+  }
+  75% {
+    width: 750px;
+  }*/
+  to {
+    width: 900px;
+    /*border-color: green;*/
+    /*border-bottom-color: rgb(102, 51, 255);*/
+    /*border-radius: 0px;*/
+    background-color: rgba(102, 51, 255, 0.2); 
+  }
+}
+
+p.element-for-animation {
+  /*background: rgba(255, 255, 255, 0.3);*/
+  text-align: center;
+  margin: 80px auto;
+  width: 300px;
+
+  border: 2px double #fff;
+  border-radius: 40px;
+
+  animation-name: wide-panel;
+  /*animation: none;*/
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;  /*сообщает браузеру, должна ли анимация проигрываться в обратном порядке.*/
+  animation-timing-function: cubic-bezier(0.8, 1.5, 0.2, -1); /*как будет развиваться анимация между ключевыми кадрами: равномерно, или сначала быстро, потом медленно, или по каким-то сложным внутренним законам.*/
+  animation-timing-function: linear;
+  /*animation-play-state: paused; Свойство, позволяющее ставить анимацию на паузу и запускать снова. Например с псевдо-классом "hover"*/
+}
+
+p.element-for-animation a {
+  font-size: 25px;
+  width: 250px;
+  display: inline-block;
+  padding: 22px;
+  color: white;
+}
+
+p.element-for-animation a:hover {color: black;}
+p.element-for-animation:hover {border: 2px double black; cursor: pointer;}
+
+/*---------------------animation--------------------------*/
+/*---------------------no-access--------------------------*/
+
+.no-access {text-align: center; margin-top: 45px;}
+
+.no-access p {margin: 0; font-size: 21px;}
+
+.no-access p a {font-size: 18px;}
+.no-access p a:hover {color: white;}
+
+.redirect-link {padding-top: 35px;}
+
+/*---------------------no-access--------------------------*/
+
+.smart-move {text-align: center; margin-top: 35px;}
+
+.smart-move a {
+  font-size: 24px;
+}
+
+.smart-move a:hover {color: white;}

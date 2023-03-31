@@ -1,0 +1,37 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+
+	<div class='post-content'>
+
+		<div>
+			<h1 class='post-title'>{{post.title}}</h1>
+			
+			{% if post.photo %}
+				<img class="maincontent-img" src="{{post.photo.url}}">
+			{% endif %}
+
+			<p>{{post.content|linebreaks}}</p>
+		</div>
+
+	</div>
+
+	{% if request.user == post.owner or request.user.is_superuser %}
+
+		<div class='post-buttons'>
+			<p><a class="fake-button" href='{% url "edit_page" post.slug %}'>Edit post</a></p>
+			<p class='author'>Author: {{post.owner}} ╰‿╯</p>
+			<p><a class="fake-button" href='{% url "delete_page" post.slug %}'>Delete post</a></p>
+		</div>
+
+	{% else %}
+
+		<div class='post-buttons'>
+			<p><a class="fake-button" href='{% url "no_access" post.slug %}'>Edit post</a></p>
+			<p class='author'>Author: {{post.owner}} ╰‿‿╯</p>
+			<p><a class="fake-button" href='{% url "no_access" post.slug %}'>Delete post</a></p>
+		</div>
+
+	{% endif %}
+
+{% endblock %}

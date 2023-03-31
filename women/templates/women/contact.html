@@ -1,0 +1,26 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+
+	<h1 class='form-title'>{{title}}</h1>
+
+	<form method="post">
+		
+		{% csrf_token %}
+
+		<div class="form-error">{{ form.non_field_errors }}</div>
+		<!-- строка выше отображает общие ошибки при авторизации пользователя, наприм. неправ. пароль -->
+
+		{% for f in form %}
+			<p class='form-p'><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label> {{ f }}</p>
+			<div class="form-error">{{ f.errors }}</div>
+		{% endfor %} 
+
+		<div class='post-change-buttons'>
+			<button class='confirm' type="submit">Confirm</button>
+			<a class='fake-button cancel-operation' href='{% url "home" %}'>Cancel</a>
+		</div>
+
+	</form>
+
+{% endblock %}

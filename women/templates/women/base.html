@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>{{title}}</title>
+    <meta charset="UTF-8">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'women/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'women/css/styles.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=0.4">
+</head>
+<body>
+
+    <header class='header'>
+        <div class='container'>
+            <nav class="nav">
+                <ul class="menu">
+
+                    {% for m in menu %}
+                        <li class='menu-item'><a href="{% url m.url_name %}">{{m.title}}</a></li>
+                    {% endfor %}
+
+                </ul>
+
+                {% if request.user.is_authenticated %}
+                    <p><a class='selected-user'>{{ user.username.title }}</a> | <a href="{% url 'logout' %}">Log out</a></p>
+                {% else %}
+                    <p><a href="{% url 'register' %}">Registration</a> | <a href="{% url 'login' %}">Log in</a></p>
+                {% endif %}
+                
+            </nav>
+        </div>
+    </header>
+
+    <div class="categories">
+        <div class='container'>
+            <nav class="cats">
+                <ul class="all-categories">
+                    {% if cat_selected == 0 %}
+                        <li class='selected'>All categories</li>
+                    {% else %}
+                        <li><a href="{% url 'home' %}">All categories</a></li>
+                    {% endif %}
+
+                    {% for c in cats %}
+
+                        {% if c.get_posts__count > 0 %}
+                        <!-- get_posts in models -->
+                            {% if c.pk == cat_selected %}
+                                <li class='selected'>{{c.name}}</li>
+                            {% else %}
+                                <li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class='container'>
+            {% block content %}
+
+
+            {% endblock %}
+        </div>
+    </main>
+
+    {% if page_obj.has_other_pages %}
+        <nav class="navigation">
+            <div class="container">
+                 
+                <ul class="navigations">
+                {% if page_obj.has_previous %}
+                    <li class="navigation-item">
+                        <a class='navigation-link' href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+                    </li>
+                {% endif %}
+
+                    {% for p in paginator.page_range %}
+
+                    {% if page_obj.number == p %}
+                        <li class="navigation-selected-item">{{ p }}</li>
+                    {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+
+                        <li class="navigation-item">
+                            <a class='navigation-link' href="?page={{ p }}">{{ p }}</a>
+                        </li>
+                    {% endif %}
+                    {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="navigation-item">
+                        <a class='navigation-link' href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                    </li>
+                {% endif %}
+
+                </ul>
+                
+            </div>
+        </nav>
+    {% endif %}
+
+    <footer class="footer">
+        <div class="container">
+            <p class='content-footer'>&copy; 2023 Partial or complete copying of information from this site for distribution on other resources, including paper ones, is strictly welcome.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

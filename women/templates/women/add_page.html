@@ -1,0 +1,27 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+
+	<h1 class='form-title'>{{title}}</h1>
+
+	<form action="{% url 'add_page' %}" method="post" enctype="multipart/form-data">
+		<!-- строка enctype="multipart/form-data" нужна для загрузки фото в форму -->
+		<!-- в случае передачи каких либо файлов совместно с данными, нужно обязательно указывать такой атрибут -->
+		{% csrf_token %}
+
+		<div class="form-error">{{ form.non_field_errors }}</div>
+		<!-- строка выше отображает общие ошибки при добавлении статьи -->
+
+		{% for f in form %}
+			<p class='form-p'><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label> {{ f }}</p>
+			<div class="form-error">{{ f.errors }}</div>
+		{% endfor %}
+
+		<div class='post-change-buttons'>
+			<button class="confirm" type="submit">Add</button>
+			<a class='fake-button cancel-operation' href='{% url "home" %}'>Return</a>
+		</div>
+
+	</form>
+
+{% endblock %}

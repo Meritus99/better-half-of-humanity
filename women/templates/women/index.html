@@ -1,0 +1,39 @@
+{% extends 'women/base.html' %}
+
+<!-- &#8593; &#9851; &#9043; &#708;-->
+{% block content %}
+
+    <ul class="main-content">
+        {% for post in posts %}
+
+        <li>
+            <div class='article'>
+                <p class='first'><a href="{{ post.cat.get_absolute_url }}">Category: {{post.cat}}</a></p>
+                <p class='last'>Date: {{post.time_create|date:"d-m-Y H:i:s"}}</p>
+            </div>
+    
+            <div class='content'>
+
+                {% if post.photo %}
+                    <img class='maincontent-img small-img' src="{{post.photo.url}}">
+                {% endif %}
+
+                <h1 class='main-title'>{{post.title}}</h1>
+                {% autoescape off %}
+                    <p class='content-text'>{{post.content|linebreaks|truncatewords:50}}</p>
+                {% endautoescape %}
+                <a class="read-post" href="{{ post.get_absolute_url }}">Read article</a>
+
+            </div>
+        </li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+
+<!--  &#8593; &#9851; &#9043; &#708;
+<div class='scroll-top'>
+    <a style='text-decoration: none; width: 40px;' href='{% url "home" %}'>&#9851;</a> 
+</div> -->

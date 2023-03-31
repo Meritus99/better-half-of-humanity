@@ -1,0 +1,30 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+
+	{% if request.user == women.owner or request.user.is_superuser %}
+
+		<div class='delete'>
+			<form action="{% url 'delete_page' women.slug %}" method="post">
+
+				{% csrf_token %}
+
+				<h4 class='form-title-delpage'>Are you sure you want to delete the article <a class='a-delete' href='{{women.get_absolute_url}}'>"{{women.title}}"</a> ?</h4>
+
+				<div class='delpage-buttons'>
+					<a class='fake-button cancel-operation-delpage' href='{{ women.get_absolute_url }}'>Cancel</a>
+					<button class='delpage' type='submit'>Delete</button>
+				</div>
+
+			</form>
+		</div>
+
+	{% else %}
+
+		<div class='smart-move'>
+			<a href='{% url "home" %}'>You`re the smartest :)</a>
+		</div>
+
+	{% endif %}
+
+{% endblock %}

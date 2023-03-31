@@ -1,0 +1,21 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+
+	<div class='no-access'>
+
+		<p>Only the creator of the post can edit/delete a post.<br>
+			<a href='{% url "home" %}'>(click for redirect on main page)</a>
+		</p>
+
+		{% if not request.user.is_authenticated %}
+
+			<p class='redirect-link'>You must be logged in to be able to create entries.<br>
+				<a href='{% url "login" %}'>(click for redirect on login page)</a>
+			</p>
+
+		{% endif %}
+
+	</div>
+
+{% endblock %}

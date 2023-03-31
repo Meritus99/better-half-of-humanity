@@ -1,0 +1,24 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+
+	<h1 class='form-title'>{{title}}</h1>
+
+	<form method="post" class='registration-form'>
+		{% csrf_token %}
+
+		<div class="form-error">{{ form.non_field_errors }}</div>
+
+		{% for f in form %}
+			<p class='form-p'><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+			<div class="form-error">{{ f.errors }}</div>
+		{% endfor %}
+
+		<div class='post-change-buttons'>
+			<button class='confirm' type="submit">Registration</button>
+			<a class='fake-button cancel-operation' href='{% url "home" %}'>Return</a>
+		</div>
+
+	</form>
+
+{% endblock %}

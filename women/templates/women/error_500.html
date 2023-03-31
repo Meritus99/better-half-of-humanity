@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Error 500</title>
+     <meta charset="utf-8">
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=0.4, maximum-scale=1">
+     
+
+<style>
+
+	div.error-500 {text-align: center; margin-top: 40px;}
+	div.error-500 a {text-decoration: none; color: red; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1.5;}
+	div.error-500 a:hover {color: black;}
+	div.error-500 a p {margin: 0; font-size: 30px;}
+	
+</style>
+</head>
+
+<body>
+
+	<div class='error-500'>
+		<a href='{% url "home" %}'>
+			<p>Server side issues...<br>
+				<p>(click for redirect on main page)</p>
+			</p>
+		</a>
+	</div>
+
+</body>
+</html>
