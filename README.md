@@ -41,10 +41,16 @@ To install this repository, follow these steps:
   - pip install -r requirements.txt
 - Create the data base:
   - python manage.py migrate
+- Create admin profile:
+  - python manage.py createsuperuser
 - Run the Django development server: 
   - python manage.py runserver
-- Access the web application in your browser at http://localhost:8000
-- Then you need to log in, and you will be able to add content
+- Access the admin panel in your browser by path:
+  - http://127.0.0.1:8000/settings
+- Create at least one category
+- Go to main page by path:
+  - http://127.0.0.1:8000
+- Now you able to add content, enjoy
 
 If you have any difficulties with installation, feel free to contact [me](https://t.me/meritus99)
 
