@@ -1,6 +1,6 @@
 .env
 .env.dist
-db.json
+*.json
 feedback.txt
 static/info.txt
 db.sqlite3
