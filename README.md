@@ -29,12 +29,10 @@ To install this repository, follow these steps:
 
 - Open the terminal to create a new directory:
   - mkdir femme-fatale-gallery
-- Change to the newly created directory:
+- Navigate into the newly project directory: 
   - cd femme-fatale-gallery
 - Clone the repository: 
   - git clone https://github.com/meritus99/femme-fatale-gallery.git
-- Navigate into the project directory: 
-  - cd femme-fatale-gallery
 - Create a .env file in the project directory with the following variables:
   - SECRET_KEY=<your_secret_key>
   - ALLOWED_HOSTS=127.0.0.1
