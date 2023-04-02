@@ -27,6 +27,10 @@ Femme Fatale Gallery is a web application dedicated to showcasing women from var
 ## Setup
 To install this repository, follow these steps:
 
+- Open the terminal to create a new directory:
+  - mkdir femme-fatale-gallery
+- Change to the newly created directory:
+  - cd femme-fatale-gallery
 - Clone the repository: 
   - git clone https://github.com/meritus99/femme-fatale-gallery.git
 - Navigate into the project directory: 
