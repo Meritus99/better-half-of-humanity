@@ -1,10 +1,10 @@
 # Femme fatale gallery
 
 ## Table of contents
-- **[General information](https://github.com/Meritus99/femme-fatale-gallery/edit/main/README.md#general-information)**
-- **[Technologies](https://github.com/Meritus99/femme-fatale-gallery/edit/main/README.md#technologies)**
-- **[Setup](https://github.com/Meritus99/femme-fatale-gallery/edit/main/README.md#setup)**
-- **[Overview](https://github.com/Meritus99/femme-fatale-gallery/edit/main/README.md#overview)**
+- **[General information](https://github.com/Meritus99/femme-fatale-gallery#general-information)**
+- **[Technologies](https://github.com/Meritus99/femme-fatale-gallery#technologies)**
+- **[Setup](https://github.com/Meritus99/femme-fatale-gallery#setup)**
+- **[Overview](https://github.com/Meritus99/femme-fatale-gallery#overview)**
 
 ## General information
 Femme Fatale Gallery is a web application dedicated to showcasing women from various fields, such as actresses, singers etc. The project was created specifically to gain experience working with the Django framework and experience deploying the application on the server.
