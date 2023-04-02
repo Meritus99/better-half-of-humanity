@@ -28,11 +28,18 @@ Femme Fatale Gallery is a web application dedicated to showcasing women from var
 To install this repository, follow these steps:
 
 - Open the terminal to create a new directory:
-  - mkdir femme-fatale-gallery
+  - mkdir name_of_project
 - Navigate into the newly project directory: 
-  - cd femme-fatale-gallery
+  - cd name_of_project
+- Сreate an environment:
+  - python -m venv venv
+- Activate the virtual development environment:
+  - for Windows: .\venv\Scripts\activate
+  - for Unix: source venv/bin/activate 
 - Clone the repository: 
   - git clone https://github.com/meritus99/femme-fatale-gallery.git
+- Navigate into femme-fatale-gallery directory:
+  - cd femme-fatale-gallery
 - Create a .env file in the project directory with the following variables:
   - SECRET_KEY=<your_secret_key>
   - ALLOWED_HOSTS=127.0.0.1
@@ -50,7 +57,7 @@ To install this repository, follow these steps:
 - Create at least one category
 - Go to main page by path:
   - http://127.0.0.1:8000
-- Now you able to add content, enjoy
+- Now you are able to add content, enjoy
 
 If you have any difficulties with installation, feel free to contact [me](https://t.me/meritus99)
 
