@@ -215,7 +215,7 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView): # кастомный �
 
 	def get_initial(self):
 		initial = super().get_initial()
-		photo = 'img/darken+.png'
+		photo = 'img/darken.png'
 		initial['photo'] = photo
 		return initial
 		
