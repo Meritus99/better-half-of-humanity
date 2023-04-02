@@ -2,7 +2,7 @@
 .env.dist
 *.json
 feedback.txt
-static/info.txt
+static/
 db.sqlite3
 *.sqlite3
 coolsite_cache/
