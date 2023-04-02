@@ -9,3 +9,6 @@ coolsite_cache/
 __pycache__/
 #media/img
 
+#---------------
+.idea/
+venv/
