@@ -9,6 +9,7 @@ menu = [
 	{'title': 'Feedback', 'url_name': 'contact'},
 ]
 
+
 class DataMixin:
 	paginate_by = 5 # pagination, which inclusion in ListView
 
@@ -32,3 +33,16 @@ class DataMixin:
 		if 'cat_selected' not in context:
 			context['cat_selected'] = 0
 		return context
+
+
+def content_adjustment(string):
+	numbers = [x for x in range(0, 101)]
+	for i in numbers:
+		string = string.replace(f'[{str(i)}]', '')
+	return string
+
+
+def check_page_owner(request, self):
+	if self.owner != request.user:
+		return True
+	return False
