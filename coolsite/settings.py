@@ -32,7 +32,7 @@ DEBUG = env('DEBUG')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
-#ALLOWED_HOSTS = env('HOST_1'), env('HOST_2'), env('LOCAL_HOST')
+# ALLOWED_HOSTS = env('HOST_1'), env('HOST_2'), env('LOCAL_HOST')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 # Quick-start development settings - unsuitable for production
@@ -74,7 +74,11 @@ ROOT_URLCONF = 'coolsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')], #пишем путь для того чтобы переназначить стандарные шаблоны, взяв название файла base_site.html из папки venv, создадим файл с таким же названием в templates, но уже с кастомным содержимым, для того чтобы иметь возмож. настроить панель под себя. Это работает т.к джаного сначала ищет кастомные шаблоны для отображения страницы, а в случае их отсутствия, использует стандартные из venv. 
+        'DIRS': [BASE_DIR / 'templates'],
+        # пишем путь для того чтобы переназначить стандарные шаблоны, взяв название файла base_site.html из папки
+        # venv, создадим файл с таким же названием в templates, но уже с кастомным содержимым, для того чтобы
+        # иметь возмож. настроить панель под себя. Это работает т.к джаного сначала
+        # ищет кастомные шаблоны для отображения страницы, а в случае их отсутствия, использует стандартные из venv.
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,11 +93,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'coolsite.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = { 
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
@@ -131,18 +134,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en' # en-us
+LANGUAGE_CODE = 'en'  # en-us
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -159,7 +160,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
-#LOGIN_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -171,7 +172,7 @@ INTERNAL_IPS = [
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': os.path.join(BASE_DIR, 'coolsite_cache'), 
+        'LOCATION': os.path.join(BASE_DIR, 'coolsite_cache'),
     }
 }
 
