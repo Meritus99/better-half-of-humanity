@@ -1,9 +1,9 @@
 from django import template
-from women.models import *
+from women.models import Category
 
-register = template.Library() # экземпляр класса Library для регистрации тэгов
+register = template.Library()  # экземпляр класса Library для регистрации тэгов
 
-""" Простой тэг """
+
 @register.simple_tag(name='getcats')
 def get_categories(filter=None):
 	if not filter:
@@ -12,7 +12,6 @@ def get_categories(filter=None):
 		return Category.objects.filter(pk=filter)
 
 
-""" Включающий тэг """
 @register.inclusion_tag('women/list_categories.html')
 def show_categories(sort=None, cat_selected=0):
 	if not sort:

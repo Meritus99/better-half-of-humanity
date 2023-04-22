@@ -3,9 +3,10 @@
 *.json
 feedback.txt
 #static/
+#media/img
 db.sqlite3
 *.sqlite3
+.flake8
 coolsite_cache/
 __pycache__/
-#media/img
 
