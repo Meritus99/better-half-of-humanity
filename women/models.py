@@ -12,7 +12,7 @@ class Women(models.Model):
 	time_update = models.DateTimeField(auto_now=True, verbose_name='Correction time')
 	is_published = models.BooleanField(default=True, verbose_name='Publication')
 	cat = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Category', related_name='get_posts')
-	# related_name = 'get_posts' для того чтоб в shell`e использовать .get_posts.all() а не women_set.all()
+	# related_name = 'get_posts' to use .get_posts.all() instead of women_set.all() in the shell
 	owner = models.ForeignKey(User, default=1, on_delete=models.CASCADE, verbose_name='Author')
 
 	def __str__(self):
@@ -24,7 +24,7 @@ class Women(models.Model):
 	class Meta:
 		verbose_name = 'Famous Women'
 		verbose_name_plural = 'Famous Women'
-		ordering = ['-time_create']  # "-"(minus)its обратная сортировка
+		ordering = ['-time_create']
 
 
 class Category(models.Model):

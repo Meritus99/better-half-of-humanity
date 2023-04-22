@@ -28,9 +28,9 @@ class DataMixin:
 
     def get_user_context(self, **kwargs):
         context = kwargs
-        """ Кэширование с использованием API низкого уровня/Может быть использовано
-        для того чтобы помещать в кэш какие-то отдельные данные, 
-        а потом их читать: """
+        """ Low level API caching/Can be used
+        to put some individual data in the cache, 
+        and then read them out: """
 
         cats = cache.get('cats')  # ('cats') - имя ключа
         if not cats:

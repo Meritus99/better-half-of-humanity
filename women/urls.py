@@ -1,20 +1,20 @@
 from django.urls import path
-from women.views import *
+from .views import *
 
-'''	Кэширование на уровне представлений. Любое кэширование применяется только 
-	нa финальном этапе разработки, чтобы не скрывать от разрабротчика реальную 
-	нагрузку на сайт. '''
+"""	Caching at view level. Any caching is only applied in the 
+	at the final design stage, so as not to hide the actual 
+	load on the site. """
 
-""" path('', cache_page(60)(WomenHome.as_view()), name='home'), 
-в папке coolsite_cache создаются бинарные файлы, которые сохраняют кэш главной страницы, 
-в итоге при повторном обращении к странице не происходит (SQL запроса) обращения к БД, 
-потому что данные берутся из кэша, что существенно снижает нагрузку на сайт.
+""" path('', cache_page(60)(WomenHome.as_view()), name='home''), 
+binary files are created in the coolsite_cache folder, which saves the main page cache, 
+as a result, when the page is accessed again, there is no (SQL request) to the database, 
+because data is taken from the cache, which significantly reduces the load on the site. """
 
-по истечении времени(60 сек.), этот кэш перестанет существовать, 
-и очередной запрос снова будет формировать нашу страницу
-Нюанс, пока существует этот кэш, любые изменения страницы не будут отображаться юзеру, 
-т.к будет брать ранее сформированную страницу из кэша.
-Это означает что динамические данные(чаты, комментарии) кэшировать нельзя. """
+""" After 60 seconds, this cache will cease to exist, 
+and the next request will build our page again.
+The nuance, while there is this cache, any changes of page will not be displayed to the user, 
+because it will take a previously generated page from the cache.
+This means that dynamic data (chats, comments) cannot be cached. """
 
 urlpatterns = [
 	path('', WomenHome.as_view(), name='home'), 

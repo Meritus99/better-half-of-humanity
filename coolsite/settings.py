@@ -13,7 +13,6 @@ DEBUG = env('DEBUG')
 
 SECRET_KEY = env('SECRET_KEY')
 
-# ALLOWED_HOSTS = env('HOST_1'), env('HOST_2'), env('LOCAL_HOST')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 NON_LOCAL_APPS = [
@@ -52,11 +51,7 @@ ROOT_URLCONF = 'coolsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # пишем путь для того чтобы переназначить стандарные шаблоны,
-        # взяв название файла base_site.html из папки venv, создадим файл с таким же названием в templates, но
-        # уже с кастомным содержимым, для того чтобы иметь возмож. настроить панель под себя. Это работает
-        # т.к джаного сначала ищет кастомные шаблоны для отображения страницы, а в случае их отсутствия,
-        # использует стандартные из venv.
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,24 +66,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'coolsite.wsgi.application'
 
+# for localhost
 DATABASES = { 
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# Для локальной машины
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': "wenturum_django",
-#         'USER': 'wenturum_django',
-#         "PASSWORD": 'qNXuuZgR1_12',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -123,13 +107,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / 'media/'
 MEDIA_URL = '/media/'
 
-# LOGIN_REDIRECT_URL = '/'
-
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-""" Кэширование. Тут задается место, в котором будет содержаться сохраненный кэш. """
+""" Specify the location where the saved cache will be stored """
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
@@ -137,12 +119,9 @@ CACHES = {
     }
 }
 
-""" Для кэширования, в корневой папке проекта(coolsite) нужно создать папку с названием "coolsite_cache".
-Можно кэшировать данные на уровне шаблонов(в файлах .html), с пом. API низкого уровня(в views.py или utils.py), и на 
-уровне представлений(в urls.py).
-Для кэширования на уровне представлений нужно в урлах прописать: 
-
-urlpatterns = [
-    path('', cache_page(60)(WomenHome.as_view()), name='home'),
-    ] 
-"""
+""" For caching, a folder called "coolsite_cache" must be created in the root folder of the project (coolsite).
+    You can cache data at template level (in .html files), with low level API (in views.py or utils.py), and at 
+    view level (in urls.py).
+    For view-level caching, we need to specify in urls: 
+    
+urlpatterns = [path('', cache_page(60)(WomenHome.as_view()), name='home')] """
