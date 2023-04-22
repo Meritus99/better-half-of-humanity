@@ -22,6 +22,7 @@ Femme Fatale Gallery is a web application dedicated to showcasing women from var
 - django debug toolbar
 - django simple captcha
 - transliterate
+- flake8
 
 
 ## Setup
