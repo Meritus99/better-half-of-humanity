@@ -22,14 +22,24 @@ Femme Fatale Gallery is a web application dedicated to showcasing women from var
 - django debug toolbar
 - django simple captcha
 - transliterate
+- flake8
 
 
 ## Setup
 To install this repository, follow these steps:
 
+- Open the terminal to create a new directory:
+  - mkdir name_of_project
+- Navigate into the newly project directory: 
+  - cd name_of_project
+- Сreate an environment:
+  - python -m venv venv
+- Activate the virtual development environment:
+  - for Windows: .\venv\Scripts\activate
+  - for Unix: source venv/bin/activate 
 - Clone the repository: 
   - git clone https://github.com/meritus99/femme-fatale-gallery.git
-- Navigate into the project directory: 
+- Navigate into femme-fatale-gallery directory:
   - cd femme-fatale-gallery
 - Create a .env file in the project directory with the following variables:
   - SECRET_KEY=<your_secret_key>
@@ -37,9 +47,18 @@ To install this repository, follow these steps:
   - DEBUG=<True_or_False>
 - Install the necessary packages: 
   - pip install -r requirements.txt
+- Create the data base:
+  - python manage.py migrate
+- Create admin profile:
+  - python manage.py createsuperuser
 - Run the Django development server: 
   - python manage.py runserver
-- Access the web application in your browser at http://localhost:8000
+- Access the admin panel in your browser by path:
+  - http://127.0.0.1:8000/settings
+- Create at least one category
+- Go to main page by path:
+  - http://127.0.0.1:8000
+- Now you are able to add content, enjoy
 
 If you have any difficulties with installation, feel free to contact [me](https://t.me/meritus99)
 
