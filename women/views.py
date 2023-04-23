@@ -1,6 +1,9 @@
+import requests
+
 from django.contrib.auth import login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
+from django.core.files.base import ContentFile
 from django.db.models import Count
 from django.http import HttpResponseNotFound, HttpResponseServerError
 from django.shortcuts import redirect, render
@@ -13,7 +16,7 @@ from .models import Category, Women
 
 from .forms import (AddPostForm, ContactForm, EditPageForm, LoginUserForm,
                     RegisterUserForm)
-from .utils import DataMixin, content_adjustment, is_owner, menu
+from .utils import DataMixin, content_adjustment, is_owner, initial_photo, menu
 
 
 class WomenHome(DataMixin, ListView):
@@ -47,16 +50,6 @@ class AboutView(DataMixin, TemplateView):
         return context | common_data
 
 
-def error_handler_404(request, exception):
-    content = loader.render_to_string('women/error_404.html', {}, request)
-    return HttpResponseNotFound(content)
-
-
-def error_handler_500(request):
-    content = loader.render_to_string('women/error_500.html', {}, request)
-    return HttpResponseServerError(content)
-
-
 class DeletePage(LoginRequiredMixin, DataMixin, DeleteView):
     def get(self, request, post_slug):
         cats = Category.objects.annotate(Count('get_posts'))
@@ -68,7 +61,6 @@ class DeletePage(LoginRequiredMixin, DataMixin, DeleteView):
             'cat_selected': cat_selected,
         }
 
-        """ Защита от проникновения """
         html_template = is_owner(request, women)
         if not html_template:
             context['title'] = 'Hahaha'
@@ -123,16 +115,16 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
 
     def get_initial(self):
         initial = super().get_initial()
-        photo = 'img/darken.png'
-        initial['photo'] = photo
+        response = requests.get(initial_photo)
+        image_content = response.content
+        file_name = initial_photo.split('/')[-1]
+        initial['photo'] = ContentFile(image_content, name=file_name)
         return initial
 
     def form_valid(self, form):
         form.instance.content = content_adjustment(self.request.POST['content'])
         form.instance.owner = self.request.user
-
         form.instance.slug = slugify(self.request.POST['title'], 'ru')
-
         return super().form_valid(form)
 
 
@@ -241,3 +233,13 @@ class LoginUser(DataMixin, LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+def error_handler_404(request, exception):
+    content = loader.render_to_string('women/error_404.html', {}, request)
+    return HttpResponseNotFound(content)
+
+
+def error_handler_500(request):
+    content = loader.render_to_string('women/error_500.html', {}, request)
+    return HttpResponseServerError(content)

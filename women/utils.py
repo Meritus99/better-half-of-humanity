@@ -9,6 +9,9 @@ menu = [
     {'title': 'Feedback', 'url_name': 'contact'},
 ]
 
+initial_photo = 'https://cdn.shopify.com/s/files/1/0560/6408/2078/products/IMAGE2022'+\
+                '-12-1621_11_25_1080x_76f7b64d-8910-4288-b282-b013ea44557f_700x.webp?v=1675820571'
+
 
 def content_adjustment(string):
     numbers = [x for x in range(0, 101)]
