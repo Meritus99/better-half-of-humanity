@@ -20,7 +20,6 @@ class AddPostForm(forms.ModelForm):
 	class Meta:
 		model = Women
 		fields = ['title', 'content', 'photo', 'is_published', 'cat']
-
 		widgets = {
 			'title': forms.TextInput(attrs={'class': 'input', 'placeholder': ' Name Surname'}),
 			# a class from our css to set the field style
@@ -35,7 +34,7 @@ class RegisterUserForm(UserCreationForm):
 		attrs={'class': 'form-input', 'placeholder': ' example@email.com'}))
 	password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
 	password2 = forms.CharField(label='Repeat pass', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-	captcha = CaptchaField(label='Enter a code')
+	captcha = CaptchaField(label='Enter a code', required=settings.REQUIRED_CAPTCHA)
 
 	class Meta:
 		# fields have the same order as they are written in the fields variable
@@ -56,7 +55,7 @@ class ContactForm(forms.Form):
 	email = forms.EmailField(label='Email', required=False, widget=forms.EmailInput(
 		attrs={'class': 'form-input', 'placeholder': 'example@gmail.com'}))
 	content = forms.CharField(label="Message", widget=forms.Textarea(attrs={'cols': 46, 'rows': 3}))
-	captcha = CaptchaField(label='Enter a code')
+	captcha = CaptchaField(label='Enter a code', required=settings.REQUIRED_CAPTCHA)
 
 
 class EditPageForm(forms.ModelForm):
