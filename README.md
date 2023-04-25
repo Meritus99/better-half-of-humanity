@@ -45,7 +45,7 @@ To install this repository, follow these steps:
   - SECRET_KEY=<your_secret_key>
   - ALLOWED_HOSTS=127.0.0.1
   - DEBUG=<True_or_False>
-  - REQUIRED_CAPTCHA=<True_or_False> (False to add entries without entering captcha)
+  - REQUIRED_CAPTCHA=<True_or_False> (False to add entries/register without entering captcha)
 - Install the necessary packages: 
   - pip install -r requirements.txt
 - Create the data base:
