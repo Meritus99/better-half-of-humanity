@@ -61,7 +61,7 @@ To install this repository, follow these steps:
   - http://127.0.0.1:8000
 - Now you are able to add content, enjoy
 
-If you have any difficulties with installation, feel free to contact [me](https://t.me/meritus99)
+If you have any difficulties with installation, feel free to contact me.
 
 ## Overview
 To view the web application, please click on [this link](https://meritus99.github.io)
