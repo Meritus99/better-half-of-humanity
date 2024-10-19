@@ -1,10 +1,10 @@
 # Femme fatale gallery
 
 ## Table of contents
-- **[General information](https://github.com/Meritus99/femme-fatale-gallery#general-information)**
-- **[Technologies](https://github.com/Meritus99/femme-fatale-gallery#technologies)**
-- **[Setup](https://github.com/Meritus99/femme-fatale-gallery#setup)**
-- **[Overview](https://github.com/Meritus99/femme-fatale-gallery#overview)**
+- **[General information](https://github.com/TikiTaki322/femme-fatale-gallery#general-information)**
+- **[Technologies](https://github.com/TikiTaki322/femme-fatale-gallery#technologies)**
+- **[Setup](https://github.com/TikiTaki322/femme-fatale-gallery#setup)**
+- **[Overview](https://github.com/TikiTaki322/femme-fatale-gallery#overview)**
 
 ## General information
 Femme Fatale Gallery is a web application dedicated to showcasing women from various fields, such as actresses, singers etc. The project was created specifically to gain experience working with the Django framework and experience deploying the application on the server.
@@ -38,7 +38,7 @@ To install this repository, follow these steps:
   - for Windows: .\venv\Scripts\activate
   - for Unix: source venv/bin/activate 
 - Clone the repository: 
-  - git clone https://github.com/meritus99/femme-fatale-gallery.git
+  - git clone https://github.com/tikitaki322/femme-fatale-gallery.git
 - Navigate into femme-fatale-gallery directory:
   - cd femme-fatale-gallery
 - Create a .env file in the project directory with the following variables:
