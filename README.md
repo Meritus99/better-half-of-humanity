@@ -64,4 +64,4 @@ To install this repository, follow these steps:
 If you have any difficulties with installation, feel free to contact me.
 
 ## Overview
-To view the web application, please click on [this link](https://meritus99.github.io)
+To view the web application, please click on [this link](https://tikitaki322.github.io)
